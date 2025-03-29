@@ -20,7 +20,7 @@ async function testConnection() {
     ssl:
       connectionString.includes("localhost") || connectionString.includes("127.0.0.1")
         ? false
-        : { rejectUnauthorized: true },
+        : { rejectUnauthorized: false },
   })
 
   try {

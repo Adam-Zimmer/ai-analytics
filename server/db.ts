@@ -19,7 +19,9 @@ export const db = new Pool({
   connectionString,
   ssl: shouldUseSSL(connectionString)
     ? {
-        rejectUnauthorized: true,
+        // Set rejectUnauthorized to false to accept self-signed or unverifiable certificates
+        // This is necessary for many cloud database providers
+        rejectUnauthorized: false,
       }
     : false,
   // Set a statement timeout to prevent long-running queries
